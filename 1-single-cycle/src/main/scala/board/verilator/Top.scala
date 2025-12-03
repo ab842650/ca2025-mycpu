@@ -15,9 +15,11 @@ class Top extends Module {
   val io = IO(new CPUBundle)
 
   val cpu = Module(new CPU)
+  
   cpu.io.debug_read_address := io.debug_read_address
   io.debug_read_data        := cpu.io.debug_read_data
 
+  
   // Device selection for potential peripheral access
   io.deviceSelect := cpu.io.deviceSelect
 

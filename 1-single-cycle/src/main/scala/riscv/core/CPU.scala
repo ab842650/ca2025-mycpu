@@ -99,4 +99,16 @@ class CPU extends Module {
   wb.io.alu_result          := ex.io.mem_alu_result
   wb.io.memory_read_data    := mem.io.wb_memory_read_data
   wb.io.regs_write_source   := id.io.wb_reg_write_source
+
+
+   when (true.B) {
+    printf(
+      p"[cycle] PC=0x${Hexadecimal(inst_fetch.io.instruction_address)} " +
+      p"valid=${io.instruction_valid} " +
+      p"mem_we=${mem.io.memory_bundle.write_enable} " +
+      p"mem_addr=0x${Hexadecimal(io.memory_bundle.address)}\n"
+    )
+  }
+
+
 }
