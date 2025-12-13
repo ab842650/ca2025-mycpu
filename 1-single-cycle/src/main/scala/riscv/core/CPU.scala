@@ -101,14 +101,6 @@ class CPU extends Module {
   wb.io.regs_write_source   := id.io.wb_reg_write_source
 
 
-   when (true.B) {
-    printf(
-      p"[cycle] PC=0x${Hexadecimal(inst_fetch.io.instruction_address)} " +
-      p"valid=${io.instruction_valid} " +
-      p"mem_we=${mem.io.memory_bundle.write_enable} " +
-      p"mem_addr=0x${Hexadecimal(io.memory_bundle.address)}\n"
-    )
-  }
 
 
 }

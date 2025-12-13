@@ -155,7 +155,7 @@ class Execute extends Module {
 
   // TODO: Clear LSB using bit concatenation
   // Hint: Extract upper bits and append zero
-  val jalrTarget   = io.reg1_data + io.immediate
+  val jalrTarget = Cat(jalrSum(Parameters.DataBits - 1, 1), 0.U(1.W))
 
   val branchTaken = isBranch && branchCondition
   io.if_jump_flag    := branchTaken || isJal || isJalr

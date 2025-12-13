@@ -223,7 +223,7 @@ class InstructionDecode extends Module {
   val aluOp2Sel      = WireDefault(ALUOp2Source.Register)
   // TODO: Determine when to use immediate as second operand
   // Hint: Most instruction types except R-type use immediate
-  when(!isOp) {
+  when(needsImmediate) {
     aluOp2Sel := ALUOp2Source.Immediate
   }
 
